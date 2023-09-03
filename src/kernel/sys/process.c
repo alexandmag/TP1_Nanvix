@@ -19,9 +19,26 @@
 
 #include <nanvix/const.h>
 #include <nanvix/klib.h>
+#include <nanvix/pm.h>
 
-PUBLIC int sys_process(void)
+PUBLIC int sys_process(pid_t pid, struct process_buf *buf)
 {
-	kprintf("Hello Process, from Kernel");
-	return (0);
+	kprintf("oi, do Kernel");
+
+	struct process processo
+
+	for(processo = FIRST_PROC; processo <= LAST_PROC; processo++){
+		
+		if(pid = processo->pid){
+			
+			buf->pid = processo->pid;
+			buf->state = processo->state;
+			buf->priority = processo->priority;
+			buf->user_time = processo->utime;
+			buf->kernel_time = processo->ktime;
+			return 0;
+		}
+	}
+
+	return -1;
 }

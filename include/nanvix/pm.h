@@ -121,7 +121,14 @@
 	/**@}*/
 
 #ifndef _ASM_FILE_
-
+	struct  process_buf{
+		pid_t pid;
+    		unsigned state;
+    		int priority;    
+		unsigned user_time;  
+	    	unsigned kernel_time;  	
+	};
+	
 	/**
 	 * @brief Process.
 	 */

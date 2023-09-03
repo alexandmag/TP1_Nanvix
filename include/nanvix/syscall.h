@@ -268,7 +268,7 @@
 	
 	EXTERN int sys_hello(void);
 	
-	EXTERN int sys_process(void);
+	EXTERN int sys_process(pid_t pid, struct process_buf *buf);
 
 #endif /* _ASM_FILE_ */
 

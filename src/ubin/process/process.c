@@ -30,11 +30,26 @@
  */
 int main(int argc, char *const argv[])
 {
-	((void)argc);
-	((void)argv);
+	pid_t pid;
+	struct process_buf *buf;
+
+	for(int i = 1;i < argc; i++){
 	
-	printf("Hello Process");
-	process();
+		pid = atoi(argv[i]);
+				
+	}
+	
+	int resultado = process(pid, &buf);
+
+	if(resultado = 0){	
+		printf("ID do Processo: %d\n",buf.pid);
+		printf("Estado do Processo: %u\n",buf.state);
+		printf("Prioridade do Processo: %d\n",buf.priority);
+		printf("Tempo de Usuário do Processo: %u\n",buf.user_time);
+		printf("Tempo de Kernel do Processo: %u\n",buf.kernel_time);
+	}
+	else
+		printf("Erro. Processo não encontrado!");
 
 	return (EXIT_SUCCESS);
 }
