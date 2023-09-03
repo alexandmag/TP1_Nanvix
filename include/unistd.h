@@ -24,6 +24,7 @@
 	#include <sys/stat.h>
 	#include <sys/types.h>
 	#include <fcntl.h>
+	#include <nanvix/pm.h>
 
 	/* Tests for access(). */
 	#define F_OK 0 /* File exists. */
@@ -219,7 +220,7 @@
 
 	extern int hello(void);
 
-	extern int process(void);
+	extern int process(pid_t pid, struct process_buf *buf);
 
 	/*
 	 * Gets process information

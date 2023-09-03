@@ -30,24 +30,29 @@
  */
 int main(int argc, char *const argv[])
 {
+	//Declarar variáveis "pid" e "buf"
 	pid_t pid;
-	struct process_buf *buf;
+	struct process_buf buf;
 
+	//Receber valores e salvar na variável "pid"
 	for(int i = 1;i < argc; i++){
 	
 		pid = atoi(argv[i]);
 				
 	}
 	
+	//Atribuir valor de retorno da função a variável "resultado"
 	int resultado = process(pid, &buf);
-
-	if(resultado = 0){	
+	
+	//Printar valores salvos na variável "bul" caso o valor retornado seja igual a 0
+	if(resultado == 0){	
 		printf("ID do Processo: %d\n",buf.pid);
 		printf("Estado do Processo: %u\n",buf.state);
 		printf("Prioridade do Processo: %d\n",buf.priority);
-		printf("Tempo de Usuário do Processo: %u\n",buf.user_time);
+		printf("Tempo de Usuario do Processo: %u\n",buf.user_time);
 		printf("Tempo de Kernel do Processo: %u\n",buf.kernel_time);
 	}
+	//Caso o valor retornado seja diferente de 0 printa uma mensagem de erro
 	else
 		printf("Erro. Processo não encontrado!");
 

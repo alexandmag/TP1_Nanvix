@@ -23,13 +23,15 @@
 
 PUBLIC int sys_process(pid_t pid, struct process_buf *buf)
 {
-	kprintf("oi, do Kernel");
+	
+	//Declarar struct processo
+	struct process *processo;
 
-	struct process processo
-
+	//Realiza uma verificação em todos os processos
 	for(processo = FIRST_PROC; processo <= LAST_PROC; processo++){
 		
-		if(pid = processo->pid){
+		//Atribui os valores do processo selecionado a variável "buf"
+		if(pid == processo->pid){
 			
 			buf->pid = processo->pid;
 			buf->state = processo->state;
@@ -39,6 +41,7 @@ PUBLIC int sys_process(pid_t pid, struct process_buf *buf)
 			return 0;
 		}
 	}
-
+	
+	//Retorna um valor diferente de 0 caso nenhum processo seja localizado
 	return -1;
 }

@@ -26,7 +26,7 @@ int process(pid_t pid, struct process_buf *buf)
 
 	__asm__ volatile (
 		"int $0x80"
-		: "=a" (ret),
+		: "=a" (ret)
 		: "0" (NR_process),
 		"b" (pid),
 		"c" (buf)
