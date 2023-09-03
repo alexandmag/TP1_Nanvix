@@ -43,10 +43,12 @@
 .PHONY: clear
 .PHONY: nim
 .PHONY: sleep
+.PHONY: hello
+.PHONY: process
 
 # Builds everything.
 all: cat chgrp chmod chown cp echo kill ln login ls mv nice pwd rm stat sync \
-	 touch tsh ps clear nim sleep
+	 touch tsh ps clear nim sleep hello process
 
 # Builds cat.
 cat: 
@@ -144,6 +146,14 @@ nim:
 sleep: 
 	$(CC) $(CFLAGS) $(LDFLAGS) -D TESTE sleep/*.c -o $(UBINDIR)/sleep $(LIBDIR)/libc.a
 
+# Builds hello.
+hello: 
+	$(CC) $(CFLAGS) $(LDFLAGS) -D TESTE hello/*.c -o $(UBINDIR)/hello $(LIBDIR)/libc.a
+
+# Builds process.
+process: 
+	$(CC) $(CFLAGS) $(LDFLAGS) -D TESTE process/*.c -o $(UBINDIR)/process $(LIBDIR)/libc.a
+
 
 # Clean compilation files.
 clean:
@@ -171,3 +181,5 @@ clean:
 	@rm -f $(UBINDIR)/clear
 	@rm -f $(UBINDIR)/nim
 	@rm -f $(UBINDIR)/sleep
+	@rm -f $(UBINDIR)/home
+	@rm -f $(UBINDIR)/process

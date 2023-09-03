@@ -31,7 +31,7 @@
 	#include <utime.h>
 
 	/* Number of system calls. */
-	#define NR_SYSCALLS 51
+	#define NR_SYSCALLS 53
 
 	/* System call numbers. */
 	#define NR_alarm     0
@@ -82,9 +82,11 @@
 	#define NR_shutdown 45
  	#define NR_ps       46
  	#define NR_gticks   47
- 	#define NR_semget   48
- 	#define NR_semctl   49
- 	#define NR_semop    50
+ 	#define NR_hello    48
+ 	#define NR_process  49
+ 	#define NR_semget   50
+ 	#define NR_semctl   51
+ 	#define NR_semop    52
 
 #ifndef _ASM_FILE_
 
@@ -263,6 +265,10 @@
 	 * Get system ticks since initialization
 	 */
 	EXTERN int sys_gticks(void);
+	
+	EXTERN int sys_hello(void);
+	
+	EXTERN int sys_process(void);
 
 #endif /* _ASM_FILE_ */
 

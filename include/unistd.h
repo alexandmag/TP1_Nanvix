@@ -217,6 +217,10 @@
 
 	extern int shutdown(void);
 
+	extern int hello(void);
+
+	extern int process(void);
+
 	/*
 	 * Gets process information
 	 */
